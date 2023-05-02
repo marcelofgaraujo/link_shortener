@@ -11,7 +11,7 @@
 </ul>
 
 ## How it works
-<p>As an API, you can test it on Insomnia, Postman or any APIs request tool. To shorten a URL, just select the "Form URL Encoded" option, and pass a key-value pair, which "url" is the key, and the URL you want to shorten is the value.</p>
+<p>As an API, you can test it on Insomnia, Postman or any APIs request tool. To shorten an URL, just select the "Form URL Encoded" option, and pass a key-value pair, which "url" is the key, and the URL you want to shorten is the value.</p>
 <p>The shortened URL will be returned in the template "http://localhost:8080/{6-digit-HASH}", because the project is running only locally. Though, this local URL will redirect you to the original URL.</p>
 
 ## Executing this project
