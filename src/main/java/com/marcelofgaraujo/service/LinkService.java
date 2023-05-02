@@ -20,4 +20,8 @@ public class LinkService {
 		return link;
 	}
 	
+	public Link findByShortURL(String shortURL) {
+		return linkRepository.findByShortURL(shortURL);
+	}
+	
 }
