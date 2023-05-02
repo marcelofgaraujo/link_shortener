@@ -1,7 +1,10 @@
 package com.marcelofgaraujo.controller;
 
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.marcelofgaraujo.model.Link;
 import com.marcelofgaraujo.service.LinkService;
 
 import lombok.AllArgsConstructor;
@@ -11,6 +14,22 @@ import lombok.AllArgsConstructor;
 public class LinkController {
 	
 	private LinkService linkService;
+	
+	@PostMapping
+	public String shortenURL(@RequestBody String originalURL) {
+		Link originalLink = linkService.findByOriginalURL(originalURL);
+		
+		if (originalLink != null) {
+			return originalLink.getShortURL();
+		} else {
+			String shortURL = generateShortUrl();
+			Link link = new Link();
+			link.setOriginalURL(originalURL);
+			link.setShortURL(shortURL);
+			linkService.saveLink(link);
+			return link.getShortURL();
+		}
+	}
 	
 	private String generateShortUrl() {
 		
