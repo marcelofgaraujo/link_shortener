@@ -7,5 +7,6 @@ import com.marcelofgaraujo.model.Link;
 public interface LinkRepository extends JpaRepository<Link, Long> {
 	
 	public Link findByShortURL(String shortURL);
+	public Link findByOriginalURL(String originalURL);
 	
 }

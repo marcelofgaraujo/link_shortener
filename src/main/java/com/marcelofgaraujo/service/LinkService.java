@@ -20,6 +20,10 @@ public class LinkService {
 		return link;
 	}
 	
+	public Link findByOriginalURL(String url) {
+		return linkRepository.findByOriginalURL(url);
+	}
+	
 	public Link findByShortURL(String shortURL) {
 		return linkRepository.findByShortURL(shortURL);
 	}
