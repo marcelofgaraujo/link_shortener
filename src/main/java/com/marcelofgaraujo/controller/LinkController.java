@@ -29,14 +29,14 @@ public class LinkController {
 		Link originalLink = linkService.findByOriginalURL(originalURL);
 		
 		if (originalLink != null) {
-			return originalLink.getShortURL();
+			return "http://localhost:8080/" + originalLink.getShortURL();
 		} else {
 			String shortURL = generateShortUrl();
 			Link link = new Link();
 			link.setOriginalURL(originalURL);
 			link.setShortURL(shortURL);
 			linkService.saveLink(link);
-			return link.getShortURL();
+			return "http://localhost:8080/" + link.getShortURL();
 		}
 	}
 	
@@ -49,7 +49,7 @@ public class LinkController {
 			sb.append(allowedChars.charAt((int) (Math.random() * allowedChars.length())));
 		}
 		
-		return "http://localhost:8080/" + sb.toString();
+		return sb.toString();
 	}
 	
 }
